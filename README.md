@@ -1,6 +1,8 @@
-# SVC Censorium
+# Censorium
 
-A Python-based service API built with FastAPI, following the Python Packaging Authority's recommended src layout.
+A Python-based service API built with FastAPI to build a production-grade annotation and review platform.
+
+Platform infra to support human-in-the-loop ML feedback pipelines with secure task assignment, concurrent reviewers, deterministic state transitions, and replayable audit trails.
 
 ## Project Structure
 
