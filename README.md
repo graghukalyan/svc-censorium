@@ -35,12 +35,49 @@ svc-censorium/
 └── README.md
 ```
 
+## Features
+
+- ✅ **State Machine:** Deterministic PENDING → IN_PROGRESS → COMPLETED transitions
+- ✅ **Versioned Annotations:** Multiple submissions with full audit trail
+- ✅ **Assignment Validation:** Only assigned workers can submit annotations
+- ✅ **Service Layer:** Clean separation of business logic and API layer
+- ✅ **Comprehensive Tests:** Full test coverage for endpoints and state transitions
+- ✅ **Error Handling:** Structured error responses with proper HTTP status codes
+
+## Quick Start
+
+See [QUICKSTART.md](QUICKSTART.md) for a 2-minute setup guide.
+
+```bash
+# Install
+pip install -e .
+
+# Run server
+uvicorn app.main:app --reload
+
+# Run tests
+pytest -v
+```
+
+## API Endpoints
+
+### Tasks
+- `POST /tasks` - Create annotation task
+- `POST /tasks/{id}/assign` - Assign task to worker
+- `POST /tasks/{id}/annotate` - Submit annotation (versioned)
+- `GET /tasks/{id}` - Get task with full details
+
+### Workers
+- `POST /workers` - Create worker
+- `GET /workers/{id}` - Get worker details
+- `GET /workers/{id}/tasks` - Get worker's assigned tasks
+
 ## Installation
 
 1. Create a virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python -m venv dev_env
+source dev_env/bin/activate  # On Windows: dev_env\Scripts\activate
 ```
 
 2. Install the package in editable mode:
